@@ -75,7 +75,7 @@ namespace OAService.Timer
             int flowid = 173;
             //遍历某个规则下面的所有符合条件的flow_run
             //List<FlowRun> frlistbyruleid = flowrunall.Where(t => t.flow_id == flowid).ToList();
-            List<Flow173> flow173 = MySqlHelper.ExecuteObjectList<Flow173>(string.Format("SELECT flowr.run_id AS run_id,flowr.run_name AS run_name,byname AS user_id,data_2430 AS bukrs,'1' AS zfkdh,'1010' AS zjylx,data_259 AS banka,data_255 AS koinh,data_260 AS zbkno,data_263 AS zjyje,'CNY' AS waers, '10' AS zzhty,data_265 AS bktxt FROM flow_data_{0} AS flowdata INNER JOIN flow_run AS flowr ON flowdata.run_id = flowr.run_id INNER JOIN USER AS u ON u.USER_ID = flowdata.begin_user WHERE FLOW_ID = {0} AND DEL_FLAG = 0 AND END_TIME IS NOT NULL AND SYNC_TIME IS NULL AND(TIMES <= 2 OR RETRY = 1) and flowdata.run_id=13983; ", flowid)).ToList();
+            List<Flow173> flow173 = MySqlHelper.ExecuteObjectList<Flow173>(string.Format("SELECT flowr.run_id AS run_id,flowr.run_name AS run_name,byname AS user_id,data_2430 AS bukrs,'1' AS zfkdh,'1010' AS zjylx,data_259 AS banka,data_255 AS koinh,data_260 AS zbkno,data_263 AS zjyje,'CNY' AS waers, '10' AS zzhty,data_265 AS bktxt FROM flow_data_{0} AS flowdata INNER JOIN flow_run AS flowr ON flowdata.run_id = flowr.run_id INNER JOIN USER AS u ON u.USER_ID = flowdata.begin_user WHERE FLOW_ID = {0} AND DEL_FLAG = 0 AND END_TIME IS NOT NULL AND SYNC_TIME IS NULL AND (TIMES <= 2 OR RETRY = 1) and flowdata.run_id=13983; ", flowid)).ToList();
             for (int i = 0; i < flow173.Count; i++)
             {
                 //公司代码 ITEM        BUKRS
@@ -132,6 +132,9 @@ namespace OAService.Timer
                     oa04headitemlist.Add(oa04headitem);
                 }
                 oa04head.ITEMS = oa04headitemlist.ToArray();
+                string wsretlog = "";
+                int errtype = 0;//1接口错误 2ws返回结果错误 0正常
+                bool ifsuc = true;
                 //发送ws
                 try
                 {
@@ -141,30 +144,21 @@ namespace OAService.Timer
                 }
                 catch
                 {
-
+                    wsretlog = "ws调用不成功";
+                    errtype = 1;
+                    ifsuc = false;
                 }
-                //Logger.Log(JsonHelper.ObjectToJson(oa.SAP_OA_JK_04(oasap04)), flowid.ToString());
-                bool ifsuc = true;
-                //foreach (var item in retoa)
-                //{
-                //    if (item.TYPE != "S")
-                //    {
-                //        ifsuc = false;
-                //        break;
-                //    }
-                //}
-
+             
                 MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1 where RUN_ID={0} ", flow173[i].run_id), null);
-                Logger.Log(string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime) values ({0},{1},'{2}','{3}','{4}',sysdate())", flow173[i].run_id, flowid, flow173[i].run_name, JsonHelper.ObjectToJson(oasap04), ""));
-                MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime) values ({0},{1},'{2}','{3}','{4}',sysdate())", flow173[i].run_id, flowid, flow173[i].run_name, JsonHelper.ObjectToJson(oasap04), ""), null);
+                MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime,errtype) values ({0},{1},'{2}','{3}','{4}',sysdate(),{5})", flow173[i].run_id, flowid, flow173[i].run_name, JsonHelper.ObjectToJson(oasap04), wsretlog, errtype), null);
                 if (ifsuc)
                 {
-                    //int ret = MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("update flow_run set SYNC_TIME=sysdate() where RUN_ID={0} ", flow173[i].run_id), null);
+                    int ret = MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("update flow_run set SYNC_TIME=sysdate() where RUN_ID={0} ", flow173[i].run_id), null);
                     //更新数据库表示他已经同步过了并且同步成功了
-                    //if (ret > 0)
-                    Logger.Log(string.Format("RUN_ID={0},已经更新数据库", flow173[i].run_id), flowid.ToString());
-                    //else
-                    //  Logger.Error(string.Format("RUN_ID={0},更新没有成功", flow173[i].run_id), flowid.ToString());
+                    if (ret > 0)
+                        Logger.Log(string.Format("RUN_ID={0},已经更新数据库", flow173[i].run_id), flowid.ToString());
+                    else
+                      Logger.Error(string.Format("RUN_ID={0},更新没有成功", flow173[i].run_id), flowid.ToString());
                 }
                 else
                 {
