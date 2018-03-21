@@ -1,0 +1,23 @@
+﻿{
+    "flowid": 141,
+    "wsname": "OA_SAP_JK_01",
+    "isover": 1,
+    "data": [
+        {
+            "name": "begin_user",
+            "val": "",
+            "is_list": false
+        },
+        {
+            "name": "data_78",
+            "val": "",
+            "is_list": true
+        },
+        {
+            "name": "data_90",
+            "val": "",
+            "is_list": false
+        }
+    ]
+}
+

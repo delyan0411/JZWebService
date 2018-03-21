@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://jiuzhou.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://jiuzhou.com/SAP_OA_JK_08" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s8="http://jiuzhou.com/SAP_OA_JK_11" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="http://jiuzhou.com/SAP_OA_JK_13" xmlns:s9="http://jiuzhou.com/SAP_OA_JK_20" xmlns:s0="http://jiuzhou.com/SAP_OA_JK_12" xmlns:s6="http://jiuzhou.com/SAP_OA_JK_17" xmlns:s2="http://jiuzhou.com/OA" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s10="http://jiuzhou.com/SAP_OA_JK_04" xmlns:s7="http://jiuzhou.com/SAP_OA_JK_15" xmlns:s3="http://jiuzhou.com/SAP_OA_JK_06" targetNamespace="http://jiuzhou.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_12">
+      <s:element name="uid" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/">
+      <s:import namespace="http://jiuzhou.com/OA" />
+      <s:element name="SAP_OA_JK_12Result" type="tns:ArrayOfDT_OA_OA12_RespITEM" />
+      <s:complexType name="ArrayOfDT_OA_OA12_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA12_RespITEM" nillable="true" type="s2:DT_OA_OA12_RespITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SAP_OA_JK_13Result" type="tns:ArrayOfDT_OA_OA13_RespITEM" />
+      <s:complexType name="ArrayOfDT_OA_OA13_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA13_RespITEM" nillable="true" type="s2:DT_OA_OA13_RespITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SAP_OA_JK_17Result" type="tns:ArrayOfDT_OA_OA17_RespITEM" />
+      <s:complexType name="ArrayOfDT_OA_OA17_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA17_RespITEM" nillable="true" type="s2:DT_OA_OA17_RespITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SAP_OA_JK_15Result" type="tns:ArrayOfDT_OA_OA15_RespITEM" />
+      <s:complexType name="ArrayOfDT_OA_OA15_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA15_RespITEM" nillable="true" type="s2:DT_OA_OA15_RespITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SAP_OA_JK_11Result" type="tns:ArrayOfDT_OA_OA11_RespITEM" />
+      <s:complexType name="ArrayOfDT_OA_OA11_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA11_RespITEM" nillable="true" type="s2:DT_OA_OA11_RespITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SAP_OA_JK_20Result" type="tns:ArrayOfDT_OA_OA20_RespITEM" />
+      <s:complexType name="ArrayOfDT_OA_OA20_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA20_RespITEM" nillable="true" type="s2:DT_OA_OA20_RespITEM" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/OA">
+      <s:complexType name="DT_OA_OA12_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="AWART" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ATEXT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DT_OA_OA13_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MSGID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MESSAGE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="I_PERNR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="I_BEGDA" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DT_OA_OA17_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MSGID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MESSAGE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PERNR" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DT_OA_OA15_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MSGID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MESSAGE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PERNR" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DT_OA_OA11_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MSGID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MESSAGE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PERNR" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DT_OA_OA20_RespITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MSGID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="MESSAGE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_06">
+      <s:element name="ZRFC_HR_OA_001_REQ" type="s3:ZRFC_HR_OA_001_REQ" />
+      <s:complexType name="ZRFC_HR_OA_001_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="HEAD" type="s3:ZRFC_HR_OA_001_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZRFC_HR_OA_001_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="BJID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="STEXT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PUP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="NUM" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_08">
+      <s:element name="ZRFC_HR_OA_003_REQ" type="s4:ZRFC_HR_OA_003_REQ" />
+      <s:complexType name="ZRFC_HR_OA_003_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="HEAD">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="NACHN" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PERNR" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PERSG" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PTEXT" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PERSK" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="PTEXT1" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="GESCH" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="USRID_LONG" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="USRID" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="OBJID_DEP" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ORGTX" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="OBJID_COM" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="STEXT_GSP" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="OBJID_S" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="OBJTXT_S" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="GBDAT" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="BEGDA" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="SYSTEM" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="LOGID" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="STELL" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="STLTX" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="STAT2" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_13">
+      <s:element name="SAP_OA_JK13_REQ" type="s5:SAP_OA_JK13_REQ" />
+      <s:complexType name="SAP_OA_JK13_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="HEAD" type="s5:SAP_OA_JK13_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK13_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="I_PERNR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_BEGDA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="L_HALF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="L_BEGUZ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="L_ENDUZ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_AWART" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_17">
+      <s:element name="SAP_OA_JK17_REQ" type="s6:SAP_OA_JK17_REQ" />
+      <s:complexType name="SAP_OA_JK17_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="HEAD" type="s6:SAP_OA_JK17_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK17_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="I_PERNR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_BEGDA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_ENDDA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_BEGUZ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_ENDUZ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_STDAZ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_VERSL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_15">
+      <s:element name="SAP_OA_JK_15_REQ" type="s7:SAP_OA_JK15_REQ" />
+      <s:complexType name="SAP_OA_JK15_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="HEAD" type="s7:SAP_OA_JK15_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK15_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="I_PERNR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_BEGDA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_ENDDA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_AWART" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_11">
+      <s:element name="SAP_OA_JK_11_REQ" type="s8:SAP_OA_JK11_REQ" />
+      <s:complexType name="SAP_OA_JK11_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="HEAD" type="s8:SAP_OA_JK11_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK11_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PERNR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LDATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LTIME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SATZA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABWGR" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_20">
+      <s:element name="SAP_OA_JK_20_REQ" type="s9:SAP_OA_JK20_REQ" />
+      <s:complexType name="SAP_OA_JK20_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="HEAD" type="s9:SAP_OA_JK20_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK20_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="I_PERNR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_BEGDA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_MASSG" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_04">
+      <s:element name="SAP_OA_JK04_REQ" type="s10:SAP_OA_JK04_REQ" />
+      <s:complexType name="SAP_OA_JK04_REQ">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="HEAD" type="s10:SAP_OA_JK04_HEAD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK04_HEAD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BUKRS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZFKDH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZJYLX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANKA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOINH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZBKNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZJYJE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WAERS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZZHTY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BKTXT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ITEMS" type="s10:ArrayOfSAP_OA_JK04_HEAD_ITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSAP_OA_JK04_HEAD_ITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SAP_OA_JK04_HEAD_ITEM" nillable="true" type="s10:SAP_OA_JK04_HEAD_ITEM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAP_OA_JK04_HEAD_ITEM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ZNUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KOSTL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HKONT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZCBJE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZZSKT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZSHUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZBXJE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZRMTXT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SAP_OA_JK_12SoapIn">
+    <wsdl:part name="uid" element="s0:uid" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_12SoapOut">
+    <wsdl:part name="SAP_OA_JK_12Result" element="tns:SAP_OA_JK_12Result" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_06SoapIn">
+    <wsdl:part name="ZRFC_HR_OA_001_REQ" element="s3:ZRFC_HR_OA_001_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_06SoapOut" />
+  <wsdl:message name="SAP_OA_JK_08SoapIn">
+    <wsdl:part name="ZRFC_HR_OA_003_REQ" element="s4:ZRFC_HR_OA_003_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_08SoapOut" />
+  <wsdl:message name="SAP_OA_JK_13SoapIn">
+    <wsdl:part name="SAP_OA_JK13_REQ" element="s5:SAP_OA_JK13_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_13SoapOut">
+    <wsdl:part name="SAP_OA_JK_13Result" element="tns:SAP_OA_JK_13Result" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_17SoapIn">
+    <wsdl:part name="SAP_OA_JK17_REQ" element="s6:SAP_OA_JK17_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_17SoapOut">
+    <wsdl:part name="SAP_OA_JK_17Result" element="tns:SAP_OA_JK_17Result" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_15SoapIn">
+    <wsdl:part name="SAP_OA_JK_15_REQ" element="s7:SAP_OA_JK_15_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_15SoapOut">
+    <wsdl:part name="SAP_OA_JK_15Result" element="tns:SAP_OA_JK_15Result" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_11SoapIn">
+    <wsdl:part name="SAP_OA_JK_11_REQ" element="s8:SAP_OA_JK_11_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_11SoapOut">
+    <wsdl:part name="SAP_OA_JK_11Result" element="tns:SAP_OA_JK_11Result" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_20SoapIn">
+    <wsdl:part name="SAP_OA_JK_20_REQ" element="s9:SAP_OA_JK_20_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_20SoapOut">
+    <wsdl:part name="SAP_OA_JK_20Result" element="tns:SAP_OA_JK_20Result" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_04SoapIn">
+    <wsdl:part name="SAP_OA_JK04_REQ" element="s10:SAP_OA_JK04_REQ" />
+  </wsdl:message>
+  <wsdl:message name="SAP_OA_JK_04SoapOut" />
+  <wsdl:portType name="OaWebServiceSoap">
+    <wsdl:operation name="SAP_OA_JK_12">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询员工请假数据</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_12SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_12SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_06">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">组织架构接收</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_06SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_06SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_08">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">员工信息接收</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_08SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_08SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_13">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">请假数据传入</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_13SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_13SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_17">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">加班数据传入</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_17SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_17SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_15">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">出差数据传入</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_15SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_15SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_11">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">补卡数据转入</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_11SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_11SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_20">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">离职数据传入</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_20SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_20SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_04">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">付款申请上传</wsdl:documentation>
+      <wsdl:input message="tns:SAP_OA_JK_04SoapIn" />
+      <wsdl:output message="tns:SAP_OA_JK_04SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OaWebServiceSoap" type="tns:OaWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SAP_OA_JK_12">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_12" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_06">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_06" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_08">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_08" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_13">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_13" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_17">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_17" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_15">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_15" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_11">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_11" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_20">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_20" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_04">
+      <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_04" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OaWebServiceSoap12" type="tns:OaWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SAP_OA_JK_12">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_12" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_06">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_06" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_08">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_08" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_13">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_13" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_17">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_17" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_15">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_15" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_11">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_11" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_20">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_20" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SAP_OA_JK_04">
+      <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_04" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OaWebService">
+    <wsdl:port name="OaWebServiceSoap" binding="tns:OaWebServiceSoap">
+      <soap:address location="http://10.10.10.47/OaWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OaWebServiceSoap12" binding="tns:OaWebServiceSoap12">
+      <soap12:address location="http://10.10.10.47/OaWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

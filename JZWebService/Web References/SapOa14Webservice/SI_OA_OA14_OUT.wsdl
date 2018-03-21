@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:p1="http://jiuzhou.com/OA" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="SI_OA_OA14_OUT" targetNamespace="http://jiuzhou.com/OA" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="OP_SI_OA_OA14_OUT" />
+  <wsdl:types>
+    <xsd:schema xmlns="http://jiuzhou.com/OA" targetNamespace="http://jiuzhou.com/OA" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="MT_OA_OA14_Resp" type="p1:DT_OA_OA14_Resp" />
+      <xsd:element name="MT_OA_OA14" type="p1:DT_OA_OA14" />
+      <xsd:complexType name="DT_OA_OA14">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">员工出差数据查询</xsd:documentation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">399ff47e96b311e7ba6e000000383e3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="HEADER">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="I_PERNR" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">fc98e5ed969a11e7cee3047d7bb7e0f5</xsd:appinfo>
+                    <xsd:documentation>人员编号</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="I_BEGDA1" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">fc9912a5969a11e793ee047d7bb7e0f5</xsd:appinfo>
+                    <xsd:documentation>出差开始时间</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="I_ENDDA1" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">fc9912a6969a11e78d7a047d7bb7e0f5</xsd:appinfo>
+                    <xsd:documentation>出差结束时间</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_OA_OA14_Resp">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">4505eef796b311e78647000000383e3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="HEADER">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">69c4988496b211e7a792047d7bb7e0f5</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="O_CCTS" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">5a2144e796b211e78e33047d7bb7e0f5</xsd:appinfo>
+                    <xsd:documentation>出差天数</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="OT_AWART">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">69c4988396b211e78275047d7bb7e0f5</xsd:appinfo>
+                  </xsd:annotation>
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element minOccurs="0" name="AWART" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">5a2144e896b211e790f0047d7bb7e0f5</xsd:appinfo>
+                          <xsd:documentation>出差类型编码</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="ATEXT" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">5a2144e996b211e7ac2c047d7bb7e0f5</xsd:appinfo>
+                          <xsd:documentation>出差类型文本</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MT_OA_OA14">
+    <wsdl:documentation />
+    <wsdl:part name="MT_OA_OA14" element="p1:MT_OA_OA14" />
+  </wsdl:message>
+  <wsdl:message name="MT_OA_OA14_Resp">
+    <wsdl:documentation />
+    <wsdl:part name="MT_OA_OA14_Resp" element="p1:MT_OA_OA14_Resp" />
+  </wsdl:message>
+  <wsdl:portType name="SI_OA_OA14_OUT">
+    <wsdl:documentation />
+    <wsdl:operation name="SI_OA_OA14_OUT">
+      <wsdl:documentation />
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_SI_OA_OA14_OUT" />
+      </wsp:Policy>
+      <wsdl:input message="p1:MT_OA_OA14" />
+      <wsdl:output message="p1:MT_OA_OA14_Resp" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SI_OA_OA14_OUTBinding" type="p1:SI_OA_OA14_OUT">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <wsdl:operation name="SI_OA_OA14_OUT">
+      <operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <wsdl:input>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SI_OA_OA14_OUTService">
+    <wsdl:port name="HTTP_Port" binding="p1:SI_OA_OA14_OUTBinding">
+      <address location="http://linux-tz11:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA14_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:SI_OA_OA14_OUTBinding">
+      <address location="https://linux-tz11:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA14_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

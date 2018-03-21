@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:p1="http://jiuzhou.com/OA" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="SI_OA_OA11_OUT" targetNamespace="http://jiuzhou.com/OA" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="OP_SI_OA_OA11_OUT" />
+  <wsdl:types>
+    <xsd:schema xmlns="http://jiuzhou.com/OA" targetNamespace="http://jiuzhou.com/OA" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="MT_OA_OA11_Resp" type="p1:DT_OA_OA11_Resp" />
+      <xsd:element name="MT_OA_OA11" type="p1:DT_OA_OA11" />
+      <xsd:complexType name="DT_OA_OA11_Resp">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">SAP_OA_JK_11 员工补打卡数据转入</xsd:documentation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">c2601e16ca6e11e7a653000000383e3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ITEM">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">705e43fcc9fd11e7bcfa7ce9d3f03728</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="MSGID" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">48e73332c9fd11e7c2067ce9d3f03728</xsd:appinfo>
+                    <xsd:documentation>消息编码</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="TYPE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">28cd3f2dca6f11e7a99f00fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>"返回类型
+S 成功
+E 错误
+W 警告
+I 信息
+A 中断
+"</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">28cd3f2eca6f11e7962600fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>返回消息文本，仅传输错误消息，如果成功字段内容为空</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="PERNR" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">28cd3f2fca6f11e7823800fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>员工编号</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_OA_OA11">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">SAP_OA_JK_11 员工补打卡数据转入</xsd:documentation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">bf55648eca6e11e78b30000000383e3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="HEAD">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">a14f043bc9ff11e797317ce9d3f03728</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="PERNR" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">48e73332c9fd11e7c2067ce9d3f03728</xsd:appinfo>
+                    <xsd:documentation>人员编号</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="LDATE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">0478f585ca6f11e7ccb000fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>日期</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="LTIME" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">0478f586ca6f11e7bd1300fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>时间</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="SATZA" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">047920dbca6f11e785b000fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>时间类型（上班卡或下班卡）</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ABWGR" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">047920dcca6f11e7c8b500fffaf89a99</xsd:appinfo>
+                    <xsd:documentation>刷卡类型</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MT_OA_OA11">
+    <wsdl:documentation />
+    <wsdl:part name="MT_OA_OA11" element="p1:MT_OA_OA11" />
+  </wsdl:message>
+  <wsdl:message name="MT_OA_OA11_Resp">
+    <wsdl:documentation />
+    <wsdl:part name="MT_OA_OA11_Resp" element="p1:MT_OA_OA11_Resp" />
+  </wsdl:message>
+  <wsdl:portType name="SI_OA_OA11_OUT">
+    <wsdl:documentation />
+    <wsdl:operation name="SI_OA_OA11_OUT">
+      <wsdl:documentation />
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_SI_OA_OA11_OUT" />
+      </wsp:Policy>
+      <wsdl:input message="p1:MT_OA_OA11" />
+      <wsdl:output message="p1:MT_OA_OA11_Resp" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SI_OA_OA11_OUTBinding" type="p1:SI_OA_OA11_OUT">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <wsdl:operation name="SI_OA_OA11_OUT">
+      <operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <wsdl:input>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SI_OA_OA11_OUTService">
+    <wsdl:port name="HTTP_Port" binding="p1:SI_OA_OA11_OUTBinding">
+      <address location="http://linux-tz11:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA11_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:SI_OA_OA11_OUTBinding">
+      <address location="https://linux-tz11:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA11_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

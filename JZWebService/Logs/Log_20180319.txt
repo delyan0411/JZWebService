@@ -1,0 +1,50 @@
+--------------------------------------------------------------------------------------------------------
+2018-03-19 10:04:49,587 [47] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>赵建芳 zhaojianfang</NACHN>
+  <PERNR>00002191</PERNR>
+  <PERSG>A</PERSG>
+  <PTEXT>合同制员工</PTEXT>
+  <PERSK>A1</PERSK>
+  <PTEXT1>正式员工</PTEXT1>
+  <GESCH>2</GESCH>
+  <USRID>13735538283</USRID>
+  <OBJID_DEP>50000261</OBJID_DEP>
+  <ORGTX>东新店</ORGTX>
+  <OBJID_S>30000321</OBJID_S>
+  <OBJTXT_S>柜组长</OBJTXT_S>
+  <GBDAT>19850220</GBDAT>
+  <BEGDA>20130923</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>13000003</STELL>
+  <STLTX>柜组长</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[更新操作]，处理成功!
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+2018-03-19 15:33:04,670 [18] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>陈晶 chenjing</NACHN>
+  <PERNR>00000015</PERNR>
+  <PERSG>A</PERSG>
+  <PTEXT>合同制员工</PTEXT>
+  <PERSK>A1</PERSK>
+  <PTEXT1>正式员工</PTEXT1>
+  <GESCH>2</GESCH>
+  <USRID>18969111558</USRID>
+  <OBJID_DEP>13100001</OBJID_DEP>
+  <ORGTX>总经办</ORGTX>
+  <OBJID_S>50000073</OBJID_S>
+  <OBJTXT_S>常务副总经理</OBJTXT_S>
+  <GBDAT>19830915</GBDAT>
+  <BEGDA>20170620</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>11200003</STELL>
+  <STLTX>子公司-常务副总</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[更新操作]，处理成功!
+
+--------------------------------------------------------------------------------------------------------

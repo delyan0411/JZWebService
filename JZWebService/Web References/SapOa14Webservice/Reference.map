@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://linux-tz11:50000/dir/wsdl?p=ic/4563753098f3372b97d56bf114738a83" filename="SI_OA_OA14_OUT.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

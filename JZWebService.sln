@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JZWebService", "JZWebService\JZWebService.csproj", "{034E4FE4-1990-46DF-9BA3-678B3744E33D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAService", "OAService\OAService.csproj", "{9F611D89-66F7-4DAF-9F24-B0D937CB2179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{5C570775-6301-49CA-B386-A01F1B2166BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{034E4FE4-1990-46DF-9BA3-678B3744E33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034E4FE4-1990-46DF-9BA3-678B3744E33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034E4FE4-1990-46DF-9BA3-678B3744E33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034E4FE4-1990-46DF-9BA3-678B3744E33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F611D89-66F7-4DAF-9F24-B0D937CB2179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F611D89-66F7-4DAF-9F24-B0D937CB2179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F611D89-66F7-4DAF-9F24-B0D937CB2179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F611D89-66F7-4DAF-9F24-B0D937CB2179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C570775-6301-49CA-B386-A01F1B2166BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C570775-6301-49CA-B386-A01F1B2166BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C570775-6301-49CA-B386-A01F1B2166BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C570775-6301-49CA-B386-A01F1B2166BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

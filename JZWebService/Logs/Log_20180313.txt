@@ -1,0 +1,139 @@
+--------------------------------------------------------------------------------------------------------
+2018-03-13 15:04:26,799 [9] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>金小芳 jinxiaofang</NACHN>
+  <PERNR>00004226</PERNR>
+  <PERSG>D</PERSG>
+  <PTEXT>聘用人员</PTEXT>
+  <PERSK>D2</PERSK>
+  <PTEXT1>外部聘用人员</PTEXT1>
+  <GESCH>2</GESCH>
+  <OBJID_DEP>50001597</OBJID_DEP>
+  <ORGTX>口腔科</ORGTX>
+  <OBJID_S>50002125</OBJID_S>
+  <OBJTXT_S>口腔医生</OBJTXT_S>
+  <GBDAT>19740110</GBDAT>
+  <BEGDA>20180302</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>12000002</STELL>
+  <STLTX>医务人员</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[插入操作]，处理成功!
+
+2018-03-13 15:05:48,074 [14] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>金小芳 jinxiaofang</NACHN>
+  <PERNR>00004226</PERNR>
+  <PERSG>D</PERSG>
+  <PTEXT>聘用人员</PTEXT>
+  <PERSK>D2</PERSK>
+  <PTEXT1>外部聘用人员</PTEXT1>
+  <GESCH>2</GESCH>
+  <OBJID_DEP>50001597</OBJID_DEP>
+  <ORGTX>口腔科</ORGTX>
+  <OBJID_S>50002125</OBJID_S>
+  <OBJTXT_S>口腔医生</OBJTXT_S>
+  <GBDAT>19740110</GBDAT>
+  <BEGDA>20180302</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>12000002</STELL>
+  <STLTX>医务人员</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[插入操作]，处理成功!
+
+--------------------------------------------------------------------------------------------------------
+2018-03-13 15:09:07,143 [14] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>金小芳 jinxiaofang</NACHN>
+  <PERNR>00004226</PERNR>
+  <PERSG>D</PERSG>
+  <PTEXT>聘用人员</PTEXT>
+  <PERSK>D2</PERSK>
+  <PTEXT1>外部聘用人员</PTEXT1>
+  <GESCH>2</GESCH>
+  <OBJID_DEP>50001597</OBJID_DEP>
+  <ORGTX>口腔科</ORGTX>
+  <OBJID_S>50002125</OBJID_S>
+  <OBJTXT_S>口腔医生</OBJTXT_S>
+  <GBDAT>19740110</GBDAT>
+  <BEGDA>20180302</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>12000002</STELL>
+  <STLTX>医务人员</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[插入操作]，处理成功!
+
+2018-03-13 15:12:01,698 [17] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>金小芳 jinxiaofang</NACHN>
+  <PERNR>00004226</PERNR>
+  <PERSG>D</PERSG>
+  <PTEXT>聘用人员</PTEXT>
+  <PERSK>D2</PERSK>
+  <PTEXT1>外部聘用人员</PTEXT1>
+  <GESCH>2</GESCH>
+  <OBJID_DEP>50001597</OBJID_DEP>
+  <ORGTX>口腔科</ORGTX>
+  <OBJID_S>50002125</OBJID_S>
+  <OBJTXT_S>口腔医生</OBJTXT_S>
+  <GBDAT>19740110</GBDAT>
+  <BEGDA>20180302</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>12000002</STELL>
+  <STLTX>医务人员</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[插入操作]，处理成功!
+
+2018-03-13 15:12:04,720 [17] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>金小芳 jinxiaofang</NACHN>
+  <PERNR>00004226</PERNR>
+  <PERSG>D</PERSG>
+  <PTEXT>聘用人员</PTEXT>
+  <PERSK>D2</PERSK>
+  <PTEXT1>外部聘用人员</PTEXT1>
+  <GESCH>2</GESCH>
+  <OBJID_DEP>50001597</OBJID_DEP>
+  <ORGTX>口腔科</ORGTX>
+  <OBJID_S>50002125</OBJID_S>
+  <OBJTXT_S>口腔医生</OBJTXT_S>
+  <GBDAT>19740110</GBDAT>
+  <BEGDA>20180302</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>12000002</STELL>
+  <STLTX>医务人员</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[插入操作]，处理成功!
+
+--------------------------------------------------------------------------------------------------------
+2018-03-13 15:13:54,955 [25] INFO  JZWebService.Logging [(null)] - <?xml version="1.0" encoding="utf-16"?>
+<ZRFC_HR_OA_003_HEAD xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <NACHN>金小芳 jinxiaofang</NACHN>
+  <PERNR>00004226</PERNR>
+  <PERSG>D</PERSG>
+  <PTEXT>聘用人员</PTEXT>
+  <PERSK>D2</PERSK>
+  <PTEXT1>外部聘用人员</PTEXT1>
+  <GESCH>2</GESCH>
+  <OBJID_DEP>50001597</OBJID_DEP>
+  <ORGTX>口腔科</ORGTX>
+  <OBJID_S>50002125</OBJID_S>
+  <OBJTXT_S>口腔医生</OBJTXT_S>
+  <GBDAT>19740110</GBDAT>
+  <BEGDA>20180302</BEGDA>
+  <SYSTEM>OA</SYSTEM>
+  <STELL>12000002</STELL>
+  <STLTX>医务人员</STLTX>
+  <STAT2>3</STAT2>
+</ZRFC_HR_OA_003_HEAD>
+[插入操作]，处理成功!
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------

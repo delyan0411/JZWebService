@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:p1="http://jiuzhou.com/OA" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="SI_OA_OA04_OUT" targetNamespace="http://jiuzhou.com/OA" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="OP_SI_OA_OA04_OUT" />
+  <wsdl:types>
+    <xsd:schema xmlns="http://jiuzhou.com/OA" targetNamespace="http://jiuzhou.com/OA" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="MT_OA_OA04" type="p1:DT_OA_OA04" />
+      <xsd:complexType name="DT_OA_OA04">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">付款申请单传sap</xsd:documentation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">018e050c28c811e8a0bc000000383e3e</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="HEADER">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">df5bc15ed02411e7991c00215ce21f81</xsd:appinfo>
+              <xsd:documentation>抬头</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="BUKRS" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">df5bc15dd02411e78ac800215ce21f81</xsd:appinfo>
+                    <xsd:documentation>公司代码</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ZFKDH" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0a9cd02511e7a53500215ce21f81</xsd:appinfo>
+                    <xsd:documentation>付款单号</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ZJYLX" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0a9dd02511e7aa3800215ce21f81</xsd:appinfo>
+                    <xsd:documentation>交易类型</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="BANKA" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0aa3d02511e7c72600215ce21f81</xsd:appinfo>
+                    <xsd:documentation>银行名称</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="KOINH" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0aa5d02511e7bd5500215ce21f81</xsd:appinfo>
+                    <xsd:documentation>帐户持有人姓名</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ZBKNO" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0aa7d02511e7a51e00215ce21f81</xsd:appinfo>
+                    <xsd:documentation>银行账号(组合)</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ZJYJE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0aa8d02511e79af700215ce21f81</xsd:appinfo>
+                    <xsd:documentation>总交易金额</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="WAERS" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e0aa9d02511e7b3c300215ce21f81</xsd:appinfo>
+                    <xsd:documentation>货币码</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ZZHTY" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">f92ef04b25be11e8a5bc000ec6ce9d90</xsd:appinfo>
+                    <xsd:documentation>账号类型</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="BKTXT" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">1e2725c428c811e89923000ec6ce9d90</xsd:appinfo>
+                    <xsd:documentation>抬头文本</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="ITEM">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">c16e3198d02511e7ad5900215ce21f81</xsd:appinfo>
+                    <xsd:documentation>行项目</xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element minOccurs="0" name="ZNUM" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3190d02511e78d4000215ce21f81</xsd:appinfo>
+                          <xsd:documentation>序号</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="KOSTL" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3191d02511e79e3f00215ce21f81</xsd:appinfo>
+                          <xsd:documentation>成本中心</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="HKONT" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3192d02511e78b5e00215ce21f81</xsd:appinfo>
+                          <xsd:documentation>G/L科目号</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="ZCBJE" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3193d02511e7ac4600215ce21f81</xsd:appinfo>
+                          <xsd:documentation>成本金额</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="ZZSKT" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3194d02511e7b1cd00215ce21f81</xsd:appinfo>
+                          <xsd:documentation>税科目</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="ZSHUE" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3195d02511e7c2aa00215ce21f81</xsd:appinfo>
+                          <xsd:documentation>税额</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="ZBXJE" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3196d02511e7c72900215ce21f81</xsd:appinfo>
+                          <xsd:documentation>报销金额</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                      <xsd:element minOccurs="0" name="ZRMTXT" type="xsd:string">
+                        <xsd:annotation>
+                          <xsd:appinfo source="http://sap.com/xi/TextID">c16e3197d02511e7926100215ce21f81</xsd:appinfo>
+                          <xsd:documentation>备注文本</xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:element>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MT_OA_OA04">
+    <wsdl:documentation />
+    <wsdl:part name="MT_OA_OA04" element="p1:MT_OA_OA04" />
+  </wsdl:message>
+  <wsdl:portType name="SI_OA_OA04_OUT">
+    <wsdl:documentation />
+    <wsdl:operation name="SI_OA_OA04_OUT">
+      <wsdl:documentation />
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_SI_OA_OA04_OUT" />
+      </wsp:Policy>
+      <wsdl:input message="p1:MT_OA_OA04" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SI_OA_OA04_OUTBinding" type="p1:SI_OA_OA04_OUT">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <wsdl:operation name="SI_OA_OA04_OUT">
+      <operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <wsdl:input>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SI_OA_OA04_OUTService">
+    <wsdl:port name="HTTP_Port" binding="p1:SI_OA_OA04_OUTBinding">
+      <address location="http://linux-tz11:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA04_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:SI_OA_OA04_OUTBinding">
+      <address location="https://linux-tz11:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA04_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
