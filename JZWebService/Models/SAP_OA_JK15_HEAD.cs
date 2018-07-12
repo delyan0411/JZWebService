@@ -12,5 +12,7 @@ namespace JZWebService.Models
         public string I_BEGDA { get; set; } //
         public string I_ENDDA { get; set; } //
         public string I_AWART { get; set; } //
+        public string I_BEGUZ { get; set; } //
+        public string I_ENDUZ { get; set; } //
     }
 }

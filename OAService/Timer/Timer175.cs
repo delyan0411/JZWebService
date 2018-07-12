@@ -25,9 +25,12 @@ namespace OAService.Timer
             int flowid = 175;
             //遍历某个规则下面的所有符合条件的flow_run
             //List<FlowRun> frlistbyruleid = flowrunall.Where(t => t.flow_id == flowid).ToList();
-            List<Flow175> flow175 = MySqlHelper.ExecuteObjectList<Flow175>(string.Format("SELECT flowr.run_id AS run_id,flowr.run_name AS run_name,data_865 AS user_id,data_95 AS starttime,data_96 AS endtime, ' ' AS i_versl FROM flow_data_{0} AS flowdata INNER JOIN flow_run AS flowr ON flowdata.run_id = flowr.run_id INNER JOIN USER AS u ON u.USER_ID = flowdata.begin_user WHERE FLOW_ID = {0} AND DEL_FLAG = 0 AND END_TIME IS NOT NULL AND SYNC_TIME IS NULL AND (TIMES<=2 or RETRY=1)", flowid)).ToList();
+            List<Flow175> flow175 = MySqlHelper.ExecuteObjectList<Flow175>(string.Format("SELECT flowr.run_id AS run_id,flowr.run_name AS run_name,data_865 AS user_id,data_95 AS starttime,data_96 AS endtime, data_10 AS i_versl FROM flow_data_{0} AS flowdata INNER JOIN flow_run AS flowr ON flowdata.run_id = flowr.run_id INNER JOIN USER AS u ON u.USER_ID = flowdata.begin_user WHERE FLOW_ID = {0} AND DEL_FLAG = 0 AND END_TIME IS NOT NULL AND SYNC_TIME IS NULL AND (TIMES<=2 or RETRY=1)", flowid)).ToList();
             for (int i = 0; i < flow175.Count; i++)
             {
+                string wsretlog = "";
+                int errtype = 0;//1接口错误 2ws返回结果错误 0正常
+                bool ifsuc = true;
                 WebReference.SAP_OA_JK17_HEAD oasaphead17 = new WebReference.SAP_OA_JK17_HEAD();
                 //人员编号	Head		I_PERNR	NUMC	8			123
                 //开始日期 Head        I_BEGDA DATS    8           20170101
@@ -37,6 +40,14 @@ namespace OAService.Timer
                 //加班补偿类型 head        I_VERSL CHAR    1           "空格：加班调休 1：加班结薪"     
                 string st = flow175[i].starttime;
                 string et = flow175[i].endtime;
+                if (string.IsNullOrEmpty(st) || string.IsNullOrEmpty(et))
+                {
+                    wsretlog = "日期为空";
+                    errtype = 3;
+                    MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1,RETRY=0 where RUN_ID={0} ", flow175[i].run_id), null);
+                    MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime,errtype) values ({0},{1},'{2}','{3}','{4}',sysdate(),{5}) ", flow175[i].run_id, flowid, flow175[i].run_name, "", flow175, errtype), null);
+                    continue;
+                }
                 if (!string.IsNullOrEmpty(st) && !string.IsNullOrEmpty(et))
                 {
                     DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
@@ -69,34 +80,34 @@ namespace OAService.Timer
                         WebReference.SAP_OA_JK17_REQ oasap17 = new WebReference.SAP_OA_JK17_REQ();
                         oasap17.HEAD = oasaphead17;
                         //发送ws
-                        string retoastring = "";
-                        bool ifsuc = true;
                         try
                         {
                             WebReference.OaWebService oa = new WebReference.OaWebService();
-                            Logger.Log(JsonHelper.ObjectToJson(oasap17), flowid.ToString());
+                            Logger.Log(flow175[i].run_id + "(" + flow175[i].run_name + "-" + flow175[i].user_id + "):" + JsonHelper.ObjectToJson(oasap17), flowid.ToString());
                             WebReference.DT_OA_OA17_RespITEM[] retoa = oa.SAP_OA_JK_17(oasap17);
-                            Logger.Log(JsonHelper.ObjectToJson(retoa), flowid.ToString());
+                            wsretlog = JsonHelper.ObjectToJson(retoa);
+                            Logger.Log(flow175[i].run_id + "(" + flow175[i].run_name + "-" + flow175[i].user_id + "):" + JsonHelper.ObjectToJson(retoa), flowid.ToString());
                             foreach (var item in retoa)
                             {
                                 if (item.TYPE != "S")
                                 {
+                                    errtype = 2;
                                     ifsuc = false;
                                     break;
                                 }
                             }
-                            retoastring = JsonHelper.ObjectToJson(retoa);
                         }
                         catch
                         {
-                            retoastring = "";
+                            wsretlog = "ws调用不成功";
+                            errtype = 1;
                             ifsuc = false;
                         }
-                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1 where RUN_ID={0} ", flow175[i].run_id), null);
-                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime) values ({0},{1},'{2}','{3}','{4}',sysdate())", flow175[i].run_id, flowid, flow175[i].run_name, JsonHelper.ObjectToJson(oasap17), retoastring), null);
+                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1,RETRY=0  where RUN_ID={0} ", flow175[i].run_id), null);
+                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime,errtype) values ({0},{1},'{2}','{3}','{4}',sysdate(),{5})", flow175[i].run_id, flowid, flow175[i].run_name, JsonHelper.ObjectToJson(oasap17), wsretlog, errtype), null);
                         if (ifsuc)
                         {
-                            int ret = MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("update flow_run set SYNC_TIME=sysdate() where RUN_ID={0} ", flow175[i].run_id), null);
+                            int ret = MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("update flow_run set SYNC_TIME=sysdate(),RETRY=0 where RUN_ID={0} ", flow175[i].run_id), null);
                             //更新数据库表示他已经同步过了并且同步成功了
                             if (ret > 0)
                                 Logger.Log(string.Format("RUN_ID={0},已经更新数据库", flow175[i].run_id), flowid.ToString());

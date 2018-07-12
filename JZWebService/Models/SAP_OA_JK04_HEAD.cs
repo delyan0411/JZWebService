@@ -18,6 +18,10 @@ namespace JZWebService.Models
         public string WAERS { get; set; } //货币码
         public string ZZHTY { get; set; } //账号类型
         public string BKTXT { get; set; }//抬头文本
+        public string ZPRCT { get; set; }//收款开户地
+        public string EACBNK { get; set; }//他行户口开户行 
+        public string ZCTNO { get; set; }//城市代码
+        public string CDTBRD { get; set; }//银行的联行号
         public SAP_OA_JK04_HEAD_ITEM[] ITEMS { get; set; }//行项目
     }
     [Serializable]

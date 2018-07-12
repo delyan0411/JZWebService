@@ -26,5 +26,8 @@
     <Setting Name="JZWebService_SapOa04Webservice_SI_OA_OA04_OUTService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://linux-tz11:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA04_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA</Value>
     </Setting>
+    <Setting Name="JZWebService_SapOa10WebService_SI_OA_OA10_OUTService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://linux-tz11:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_OA_DEV&amp;receiverParty=&amp;receiverService=&amp;interface=SI_OA_OA10_OUT&amp;interfaceNamespace=http%3A%2F%2Fjiuzhou.com%2FOA</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

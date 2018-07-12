@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="OAService_WebReference_OaWebService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://10.10.10.47/OaWebService.asmx</Value>
+      <Value Profile="(Default)">http://192.168.1.88:8086/OaWebService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

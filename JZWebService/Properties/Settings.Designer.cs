@@ -118,5 +118,17 @@ namespace JZWebService.Properties {
                 return ((string)(this["JZWebService_SapOa04Webservice_SI_OA_OA04_OUTService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://linux-tz11:50000/XISOAPAdapter/MessageServlet?senderParty=&senderService=B" +
+            "S_OA_DEV&receiverParty=&receiverService=&interface=SI_OA_OA10_OUT&interfaceNames" +
+            "pace=http%3A%2F%2Fjiuzhou.com%2FOA")]
+        public string JZWebService_SapOa10WebService_SI_OA_OA10_OUTService {
+            get {
+                return ((string)(this["JZWebService_SapOa10WebService_SI_OA_OA10_OUTService"]));
+            }
+        }
     }
 }

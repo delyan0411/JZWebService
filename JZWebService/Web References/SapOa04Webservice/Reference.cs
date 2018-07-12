@@ -169,6 +169,14 @@ namespace JZWebService.SapOa04Webservice {
         
         private string bKTXTField;
         
+        private string zPRCTField;
+        
+        private string eACBNKField;
+        
+        private string zCTNOField;
+        
+        private string cDTBRDField;
+        
         private DT_OA_OA04HEADERITEM[] iTEMField;
         
         /// <remarks/>
@@ -278,6 +286,50 @@ namespace JZWebService.SapOa04Webservice {
             }
             set {
                 this.bKTXTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ZPRCT {
+            get {
+                return this.zPRCTField;
+            }
+            set {
+                this.zPRCTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string EACBNK {
+            get {
+                return this.eACBNKField;
+            }
+            set {
+                this.eACBNKField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ZCTNO {
+            get {
+                return this.zCTNOField;
+            }
+            set {
+                this.zCTNOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CDTBRD {
+            get {
+                return this.cDTBRDField;
+            }
+            set {
+                this.cDTBRDField = value;
             }
         }
         

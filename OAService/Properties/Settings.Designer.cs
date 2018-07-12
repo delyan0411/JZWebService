@@ -26,7 +26,7 @@ namespace OAService.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://10.10.10.47/OaWebService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.88:8086/OaWebService.asmx")]
         public string OAService_WebReference_OaWebService {
             get {
                 return ((string)(this["OAService_WebReference_OaWebService"]));

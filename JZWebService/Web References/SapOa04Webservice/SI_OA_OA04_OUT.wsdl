@@ -9,7 +9,7 @@
       <xsd:complexType name="DT_OA_OA04">
         <xsd:annotation>
           <xsd:documentation xml:lang="EN">付款申请单传sap</xsd:documentation>
-          <xsd:appinfo source="http://sap.com/xi/VersionID">018e050c28c811e8a0bc000000383e3e</xsd:appinfo>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">70a485b2331f11e8c97c000000383e3e</xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
           <xsd:element name="HEADER">
@@ -77,6 +77,30 @@
                   <xsd:annotation>
                     <xsd:appinfo source="http://sap.com/xi/TextID">1e2725c428c811e89923000ec6ce9d90</xsd:appinfo>
                     <xsd:documentation>抬头文本</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ZPRCT" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2fc69760316211e8a473000ec6ce9d90</xsd:appinfo>
+                    <xsd:documentation>收款开户地</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="EACBNK" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2fc69761316211e8c7f4000ec6ce9d90</xsd:appinfo>
+                    <xsd:documentation>他行户口开户行</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="ZCTNO" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">2fc69762316211e8c41b000ec6ce9d90</xsd:appinfo>
+                    <xsd:documentation>城市代码</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="CDTBRD" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">9a7887f6331f11e8cc87000ec6ce9d90</xsd:appinfo>
+                    <xsd:documentation>收款行行号</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
                 <xsd:element minOccurs="0" maxOccurs="unbounded" name="ITEM">

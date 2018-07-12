@@ -9,7 +9,6 @@ using JZWebService.Request;
 using JZWebService.Response;
 using System.Net;
 using JZWebService.SapOa13Webservice;
-using JZWebService.error;
 
 namespace JZWebService
 {
@@ -63,7 +62,7 @@ namespace JZWebService
         //    oaApp.SaveOrUpdateStaffInfo(rq);
 
         //    return "Hello World";
-            
+
         //}
         //#endregion
         //#region 会计科目数据接收
@@ -129,11 +128,11 @@ namespace JZWebService
         /// <summary>
         /// ZRFC_HR_A01_UPDATE 打卡数据推送给SAP
         /// </summary>
-        //[WebMethod(Description = "打卡数据推送给SAP")]
-        //public void ZRFC_HR_A01_OUT()
-        //{
-        //    oaApp.GetCheckInfoList();
-        //}
+        [WebMethod(Description = "打卡数据推送给SAP")]
+        public void ZRFC_HR_A01_OUT()
+        {
+            oaApp.GetCheckInfoList();
+        }
         #endregion        
         #region 查询员工请假数据
         [WebMethod(Description = "查询员工请假数据")]
@@ -224,13 +223,13 @@ namespace JZWebService
             //item.HEADER.I_PERNR = SAP_OA_JK17_REQ.HEAD.I_PERNR;
             //item.HEADER.I_BEGDA = SAP_OA_JK17_REQ.HEAD.I_BEGDA;
             //item.HEADER.I_ENDDA = SAP_OA_JK17_REQ.HEAD.I_ENDDA;
-            sh.I_PERNR = SAP_OA_JK17_REQ.HEAD.I_BEGDA;
+            sh.I_PERNR = SAP_OA_JK17_REQ.HEAD.I_PERNR;
             sh.I_BEGDA = SAP_OA_JK17_REQ.HEAD.I_BEGDA;
             sh.I_ENDDA = SAP_OA_JK17_REQ.HEAD.I_ENDDA;
-            sh.I_BEGUZ = "";
-            sh.I_ENDUZ = "";
+            sh.I_BEGUZ = SAP_OA_JK17_REQ.HEAD.I_BEGUZ;
+            sh.I_ENDUZ = SAP_OA_JK17_REQ.HEAD.I_ENDUZ;
             sh.I_STDAZ = SAP_OA_JK17_REQ.HEAD.I_STDAZ;
-            sh.I_VERSL = "1";
+            sh.I_VERSL = SAP_OA_JK17_REQ.HEAD.I_VERSL;
             item.HEADER = sh;
             sapSrv.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["SAPURLUSER"].ToString(), System.Configuration.ConfigurationManager.AppSettings["SAPURLPSW"].ToString());
             SapOa17Webservice.DT_OA_OA17_RespITEM[] ret = sapSrv.SI_OA_OA17_OUT(item);
@@ -255,6 +254,8 @@ namespace JZWebService
             sh.I_PERNR = SAP_OA_JK_15_REQ.HEAD.I_PERNR;
             sh.I_BEGDA = SAP_OA_JK_15_REQ.HEAD.I_BEGDA;
             sh.I_ENDDA = SAP_OA_JK_15_REQ.HEAD.I_ENDDA;
+            sh.I_BEGUZ = SAP_OA_JK_15_REQ.HEAD.I_BEGUZ;
+            sh.I_ENDUZ = SAP_OA_JK_15_REQ.HEAD.I_ENDUZ;
             sh.I_AWART = "1210";
             item.HEADER = sh;
             sapSrv.Credentials = new NetworkCredential(System.Configuration.ConfigurationManager.AppSettings["SAPURLUSER"].ToString(), System.Configuration.ConfigurationManager.AppSettings["SAPURLPSW"].ToString());
@@ -333,6 +334,10 @@ namespace JZWebService
             sh.WAERS = SAP_OA_JK04_REQ.HEAD.WAERS;
             sh.ZZHTY = SAP_OA_JK04_REQ.HEAD.ZZHTY;
             sh.BKTXT = SAP_OA_JK04_REQ.HEAD.BKTXT;
+            sh.ZPRCT = SAP_OA_JK04_REQ.HEAD.ZPRCT;
+            sh.EACBNK = SAP_OA_JK04_REQ.HEAD.EACBNK;
+            sh.ZCTNO = SAP_OA_JK04_REQ.HEAD.ZCTNO;
+            sh.CDTBRD = SAP_OA_JK04_REQ.HEAD.CDTBRD;
             for (int i = 0; i < SAP_OA_JK04_REQ.HEAD.ITEMS.Count(); i++)
             {
                 SapOa04Webservice.DT_OA_OA04HEADERITEM headeritem = new SapOa04Webservice.DT_OA_OA04HEADERITEM();

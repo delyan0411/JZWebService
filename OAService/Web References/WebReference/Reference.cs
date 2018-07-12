@@ -29,6 +29,8 @@ namespace OAService.WebReference {
     [System.Web.Services.WebServiceBindingAttribute(Name="OaWebServiceSoap", Namespace="http://jiuzhou.com/")]
     public partial class OaWebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback ZRFC_HR_A01_OUTOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SAP_OA_JK_12OperationCompleted;
         
         private System.Threading.SendOrPostCallback SAP_OA_JK_06OperationCompleted;
@@ -86,6 +88,9 @@ namespace OAService.WebReference {
         }
         
         /// <remarks/>
+        public event ZRFC_HR_A01_OUTCompletedEventHandler ZRFC_HR_A01_OUTCompleted;
+        
+        /// <remarks/>
         public event SAP_OA_JK_12CompletedEventHandler SAP_OA_JK_12Completed;
         
         /// <remarks/>
@@ -111,6 +116,32 @@ namespace OAService.WebReference {
         
         /// <remarks/>
         public event SAP_OA_JK_04CompletedEventHandler SAP_OA_JK_04Completed;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://jiuzhou.com/ZRFC_HR_A01_OUT", RequestNamespace="http://jiuzhou.com/", ResponseNamespace="http://jiuzhou.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ZRFC_HR_A01_OUT() {
+            this.Invoke("ZRFC_HR_A01_OUT", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void ZRFC_HR_A01_OUTAsync() {
+            this.ZRFC_HR_A01_OUTAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ZRFC_HR_A01_OUTAsync(object userState) {
+            if ((this.ZRFC_HR_A01_OUTOperationCompleted == null)) {
+                this.ZRFC_HR_A01_OUTOperationCompleted = new System.Threading.SendOrPostCallback(this.OnZRFC_HR_A01_OUTOperationCompleted);
+            }
+            this.InvokeAsync("ZRFC_HR_A01_OUT", new object[0], this.ZRFC_HR_A01_OUTOperationCompleted, userState);
+        }
+        
+        private void OnZRFC_HR_A01_OUTOperationCompleted(object arg) {
+            if ((this.ZRFC_HR_A01_OUTCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ZRFC_HR_A01_OUTCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://jiuzhou.com/SAP_OA_JK_12", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Bare)]
@@ -563,6 +594,14 @@ namespace OAService.WebReference {
         
         private string bKTXTField;
         
+        private string zPRCTField;
+        
+        private string eACBNKField;
+        
+        private string zCTNOField;
+        
+        private string cDTBRDField;
+        
         private SAP_OA_JK04_HEAD_ITEM[] iTEMSField;
         
         /// <remarks/>
@@ -662,6 +701,46 @@ namespace OAService.WebReference {
             }
             set {
                 this.bKTXTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ZPRCT {
+            get {
+                return this.zPRCTField;
+            }
+            set {
+                this.zPRCTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EACBNK {
+            get {
+                return this.eACBNKField;
+            }
+            set {
+                this.eACBNKField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ZCTNO {
+            get {
+                return this.zCTNOField;
+            }
+            set {
+                this.zCTNOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CDTBRD {
+            get {
+                return this.cDTBRDField;
+            }
+            set {
+                this.cDTBRDField = value;
             }
         }
         
@@ -1042,6 +1121,10 @@ namespace OAService.WebReference {
         
         private string i_AWARTField;
         
+        private string i_BEGUZField;
+        
+        private string i_ENDUZField;
+        
         /// <remarks/>
         public string I_PERNR {
             get {
@@ -1079,6 +1162,26 @@ namespace OAService.WebReference {
             }
             set {
                 this.i_AWARTField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string I_BEGUZ {
+            get {
+                return this.i_BEGUZField;
+            }
+            set {
+                this.i_BEGUZField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string I_ENDUZ {
+            get {
+                return this.i_ENDUZField;
+            }
+            set {
+                this.i_ENDUZField = value;
             }
         }
     }
@@ -1790,6 +1893,10 @@ namespace OAService.WebReference {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]
+    public delegate void ZRFC_HR_A01_OUTCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]

@@ -47,9 +47,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>Dll\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -82,6 +79,10 @@
     <Reference Include="MySql.Data">
       <HintPath>E:\OAservices\jiuzhou.oa.dll\DLL\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -104,7 +105,7 @@
     <Content Include="Dll\log4net.dll" />
     <Content Include="Dll\MySql.Data.dll" />
     <Content Include="Dll\Newtonsoft.Json.dll" />
-    <Content Include="Dll\Newtonsoft.Json.xml" />
+    <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="log4net.config" />
     <None Include="Properties\Settings.settings">
@@ -120,6 +121,11 @@
     <Content Include="Web References\SapOa13Webservice\DT_OA_OA13_RespITEM.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\SapOa10WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SapOa10WebService\SI_OA_OA10_OUT.wsdl" />
     <None Include="Web References\SapOa13Webservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -189,7 +195,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Util\AccessTokenManage.cs" />
+    <Compile Include="Util\CacheHelper.cs" />
     <Compile Include="Db\OaSqlDbHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Models\SAP_OA_JK11_HEAD.cs" />
     <Compile Include="Models\SAP_OA_JK15_HEAD.cs" />
     <Compile Include="Models\SAP_OA_JK04_HEAD.cs" />
@@ -215,7 +226,6 @@
     <Compile Include="Util\AppExceptions.cs" />
     <Compile Include="Util\DataHelper.cs" />
     <Compile Include="Db\OaDbHelper.cs" />
-    <Compile Include="error\MsgError.cs" />
     <Compile Include="Models\ZRFC_HR_OA_001_HEAD.cs" />
     <Compile Include="OaServer.cs" />
     <Compile Include="OaWebService.asmx.cs">
@@ -229,6 +239,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Util\IDbProvider.cs" />
+    <Compile Include="Util\Logger.cs" />
     <Compile Include="Util\MySqlServerProvider.cs" />
     <Compile Include="Util\ReflectionHelper.cs" />
     <Compile Include="Util\SqlServerProvider.cs" />
@@ -236,6 +247,11 @@
     <Compile Include="Util\TypeHelper.cs" />
     <Compile Include="Util\XmlSerializeHelper.cs" />
     <Compile Include="Web References\SapOa04Webservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SapOa10WebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -315,6 +331,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>JZWebService_SapOa15Webservice_SI_OA_OA15_OUTService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://linux-tz11:50000/dir/wsdl%3fp=ic/5d9fa3a8ef8835f885e2be9d12266e71">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SapOa10WebService\</RelPath>
+      <UpdateFromURL>http://linux-tz11:50000/dir/wsdl%3fp=ic/5d9fa3a8ef8835f885e2be9d12266e71</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>JZWebService_SapOa10WebService_SI_OA_OA10_OUTService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://linux-tz11:50000/dir/wsdl%3fp=ic/6c99f10915213717b76adf96e8697b2a">
       <UrlBehavior>Dynamic</UrlBehavior>

@@ -41,11 +41,6 @@ namespace JZWebService.Db
             }
         }
 
-        public  int demo()
-        {
-            return 1;
-
-        }
         public  int mysqlcon()
         {
             //MySqlConnection con =new MySql.Data.MySqlClient.MySqlConnection("Database='td_oa_outer';Data Source='192.168.1.89';Port=3336;UserId='oadb';Password='123456';charset='gbk'");
@@ -188,19 +183,27 @@ namespace JZWebService.Db
             DbCommand dbCommand = new MySqlCommand();
             bool flag = false;
             this.PrepareCommand(dbCommand, connection, null, commandType, commandText, commandParameters, out flag);
-            DataSet result;
+            DataSet result=new DataSet();
             using (DbDataAdapter dbDataAdapter = new MySqlDataAdapter(dbCommand as MySqlCommand))
             {
-                dbDataAdapter.SelectCommand = dbCommand;
-                DataSet dataSet = new DataSet();
-                DateTime now = DateTime.Now;
-                dbDataAdapter.Fill(dataSet);
-                DateTime now2 = DateTime.Now;
-                dbCommand.Parameters.Clear();
-                if (flag){
-                    connection.Close();
+                try
+                {
+                    dbDataAdapter.SelectCommand = dbCommand;                    
+                    DateTime now = DateTime.Now;
+                    dbDataAdapter.Fill(result);
+                    DateTime now2 = DateTime.Now;
+                    dbCommand.Parameters.Clear();
+                    if (flag)
+                    {
+                        connection.Close();
+                    }
+                    dbDataAdapter.Dispose();
+                    //result = dataSet;
                 }
-                result = dataSet;
+                catch(Exception ex)
+                {
+                    //string aaa = ex.Message;
+                }
             }
             return result;
         }

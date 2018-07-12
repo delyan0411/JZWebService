@@ -14,7 +14,7 @@ namespace OAService.Timer
     {
         public Timer145()
         {
-            System.Timers.Timer t = new System.Timers.Timer(Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["timer145"])* 1000);//
+            System.Timers.Timer t = new System.Timers.Timer(Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["timer145"]) * 1000);//
             t.Elapsed += new System.Timers.ElapsedEventHandler(Start);//到达时间的时候执行事件；
             t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)
             t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件
@@ -28,6 +28,9 @@ namespace OAService.Timer
             List<Flow145> flow145 = MySqlHelper.ExecuteObjectList<Flow145>(string.Format("SELECT flowr.run_id AS run_id,flowr.run_name AS run_name,byname AS user_id,data_78 AS DATA,data_90 AS i_awart FROM flow_data_{0} AS flowdata INNER JOIN flow_run AS flowr ON flowdata.run_id = flowr.run_id INNER JOIN USER AS u ON u.USER_ID = flowdata.begin_user WHERE FLOW_ID = {0} AND DEL_FLAG = 0 AND data_78!=\"\" AND END_TIME IS NOT NULL AND SYNC_TIME IS NULL AND (TIMES<=2 or RETRY=1)", flowid)).ToList();
             for (int i = 0; i < flow145.Count; i++)
             {
+                string wsretlog = "";
+                int errtype = 0;//1接口错误 2ws返回结果错误 0正常 3数据错误
+                bool ifsuc = true;
                 List<WebReference.SAP_OA_JK13_HEAD> oa13saplist = new List<WebReference.SAP_OA_JK13_HEAD>();
                 //人员编号 ITEM        I_PERNR NUMC    8           123
                 //请假日期 ITEM        I_BEGDA DATS    8           20170101
@@ -48,6 +51,14 @@ namespace OAService.Timer
                     }
                 else
                     awart = "2000";
+                if (string.IsNullOrEmpty(tmp))
+                {
+                    wsretlog = "日期为空";
+                    errtype = 3;
+                    MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1,RETRY=0 where RUN_ID={0} ", flow145[i].run_id), null);
+                    MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime,errtype) values ({0},{1},'{2}','{3}','{4}',sysdate(),{5}) ", flow145[i].run_id, flowid, flow145[i].run_name, "", wsretlog, errtype), null);
+                    continue;
+                }
                 if (!string.IsNullOrEmpty(tmp))
                 {
                     string[] tmpnewline = tmp.Split(Environment.NewLine.ToCharArray());
@@ -58,10 +69,23 @@ namespace OAService.Timer
                             string[] tmpnewlinedh = tmpnewline[w].Split('`');
                             DateTimeFormatInfo dtFormat = new DateTimeFormatInfo();
                             dtFormat.ShortDatePattern = "yyyy-mm-dd hh24:mi:ss";
+                            DateTime starttime = new DateTime();
+                            DateTime endtime = new DateTime();
                             if (!string.IsNullOrEmpty(tmpnewlinedh[2]) && !string.IsNullOrEmpty(tmpnewlinedh[3]))
                             {
-                                DateTime starttime = Convert.ToDateTime(tmpnewlinedh[2], dtFormat);
-                                DateTime endtime = Convert.ToDateTime(tmpnewlinedh[3], dtFormat);
+                                try
+                                {
+                                    starttime = Convert.ToDateTime(tmpnewlinedh[2], dtFormat);
+                                    endtime = Convert.ToDateTime(tmpnewlinedh[3], dtFormat);
+                                }
+                                catch
+                                {
+                                    wsretlog = "日期格式错误";
+                                    errtype = 3;
+                                    MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1,RETRY=0 where RUN_ID={0} ", flow145[i].run_id), null);
+                                    MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime,errtype) values ({0},{1},'{2}','{3}','{4}',sysdate(),{5}) ", flow145[i].run_id, flowid, flow145[i].run_name, "", wsretlog, errtype), null);
+                                    continue;
+                                }
                                 if (endtime.CompareTo(starttime) > 0)
                                 {
                                     //2017-08-14 08:30:00
@@ -189,34 +213,34 @@ namespace OAService.Timer
                     if (oa13saplist.Count > 0)
                     {
                         //发送ws
-                        string retoastring = "";
-                        bool ifsuc = true;
                         try
                         {
                             WebReference.OaWebService oa = new WebReference.OaWebService();
-                            Logger.Log(JsonHelper.ObjectToJson(oa13saplist), flowid.ToString());
+                            Logger.Log(flow145[i].run_id + "(" + flow145[i].run_name + "-" + flow145[i].user_id + "):" + JsonHelper.ObjectToJson(oa13saplist), flowid.ToString());
                             WebReference.DT_OA_OA13_RespITEM[] retoa = oa.SAP_OA_JK_13(oa13saplist.ToArray());
-                            Logger.Log(JsonHelper.ObjectToJson(retoa), flowid.ToString());
+                            wsretlog = JsonHelper.ObjectToJson(retoa);
+                            Logger.Log(flow145[i].run_id + "(" + flow145[i].run_name + "-" + flow145[i].user_id + "):" + JsonHelper.ObjectToJson(retoa), flowid.ToString());
                             foreach (var item in retoa)
                             {
                                 if (item.TYPE != "S")
                                 {
+                                    errtype = 2;
                                     ifsuc = false;
                                     break;
                                 }
                             }
-                            retoastring = JsonHelper.ObjectToJson(retoa);
                         }
                         catch
                         {
-                            retoastring = "";
+                            wsretlog = "ws调用不成功";
+                            errtype = 1;
                             ifsuc = false;
                         }
-                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1 where RUN_ID={0} ", flow145[i].run_id), null);
-                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime) values ({0},{1},'{2}','{3}','{4}',sysdate())", flow145[i].run_id, flowid, flow145[i].run_name, JsonHelper.ObjectToJson(oa13saplist), retoastring), null);
+                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("UPDATE FLOW_RUN set TIMES=TIMES+1,RETRY=0 where RUN_ID={0} ", flow145[i].run_id), null);
+                        MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format(" INSERT INTO sync_flowlog (run_id,flow_id,run_name,sendlog,receivelog,sendtime) values ({0},{1},'{2}','{3}','{4}',sysdate(),{5})", flow145[i].run_id, flowid, flow145[i].run_name, JsonHelper.ObjectToJson(oa13saplist), wsretlog, errtype), null);
                         if (ifsuc)
                         {
-                            int ret = MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("update flow_run set SYNC_TIME=sysdate() where RUN_ID={0} ", flow145[i].run_id), null);
+                            int ret = MySqlHelper.ExecuteNonQuery(System.Data.CommandType.Text, string.Format("update flow_run set SYNC_TIME=sysdate(),RETRY=0 where RUN_ID={0} ", flow145[i].run_id), null);
                             //更新数据库表示他已经同步过了并且同步成功了
                             if (ret > 0)
                                 Logger.Log(string.Format("RUN_ID={0},已经更新数据库", flow145[i].run_id), flowid.ToString());

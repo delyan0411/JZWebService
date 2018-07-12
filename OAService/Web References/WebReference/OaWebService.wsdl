@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:tns="http://jiuzhou.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://jiuzhou.com/SAP_OA_JK_08" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s8="http://jiuzhou.com/SAP_OA_JK_11" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="http://jiuzhou.com/SAP_OA_JK_13" xmlns:s9="http://jiuzhou.com/SAP_OA_JK_20" xmlns:s0="http://jiuzhou.com/SAP_OA_JK_12" xmlns:s6="http://jiuzhou.com/SAP_OA_JK_17" xmlns:s2="http://jiuzhou.com/OA" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s10="http://jiuzhou.com/SAP_OA_JK_04" xmlns:s7="http://jiuzhou.com/SAP_OA_JK_15" xmlns:s3="http://jiuzhou.com/SAP_OA_JK_06" targetNamespace="http://jiuzhou.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:tns="http://jiuzhou.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://jiuzhou.com/SAP_OA_JK_08" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s8="http://jiuzhou.com/SAP_OA_JK_11" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="http://jiuzhou.com/SAP_OA_JK_13" xmlns:s1="http://jiuzhou.com/SAP_OA_JK_12" xmlns:s9="http://jiuzhou.com/SAP_OA_JK_20" xmlns:s6="http://jiuzhou.com/SAP_OA_JK_17" xmlns:s2="http://jiuzhou.com/OA" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s10="http://jiuzhou.com/SAP_OA_JK_04" xmlns:s7="http://jiuzhou.com/SAP_OA_JK_15" xmlns:s3="http://jiuzhou.com/SAP_OA_JK_06" targetNamespace="http://jiuzhou.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_12">
-      <s:element name="uid" type="s:string" />
-    </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/">
       <s:import namespace="http://jiuzhou.com/OA" />
+      <s:element name="ZRFC_HR_A01_OUT">
+        <s:complexType />
+      </s:element>
+      <s:element name="ZRFC_HR_A01_OUTResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="SAP_OA_JK_12Result" type="tns:ArrayOfDT_OA_OA12_RespITEM" />
       <s:complexType name="ArrayOfDT_OA_OA12_RespITEM">
         <s:sequence>
@@ -42,6 +45,9 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="DT_OA_OA20_RespITEM" nillable="true" type="s2:DT_OA_OA20_RespITEM" />
         </s:sequence>
       </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/SAP_OA_JK_12">
+      <s:element name="uid" type="s:string" />
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://jiuzhou.com/OA">
       <s:complexType name="DT_OA_OA12_RespITEM">
@@ -192,6 +198,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="I_BEGDA" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="I_ENDDA" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="I_AWART" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_BEGUZ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="I_ENDUZ" type="s:string" />
         </s:sequence>
       </s:complexType>
     </s:schema>
@@ -246,6 +254,10 @@
           <s:element minOccurs="0" maxOccurs="1" name="WAERS" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ZZHTY" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="BKTXT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZPRCT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EACBNK" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZCTNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CDTBRD" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ITEMS" type="s10:ArrayOfSAP_OA_JK04_HEAD_ITEM" />
         </s:sequence>
       </s:complexType>
@@ -268,8 +280,14 @@
       </s:complexType>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="ZRFC_HR_A01_OUTSoapIn">
+    <wsdl:part name="parameters" element="tns:ZRFC_HR_A01_OUT" />
+  </wsdl:message>
+  <wsdl:message name="ZRFC_HR_A01_OUTSoapOut">
+    <wsdl:part name="parameters" element="tns:ZRFC_HR_A01_OUTResponse" />
+  </wsdl:message>
   <wsdl:message name="SAP_OA_JK_12SoapIn">
-    <wsdl:part name="uid" element="s0:uid" />
+    <wsdl:part name="uid" element="s1:uid" />
   </wsdl:message>
   <wsdl:message name="SAP_OA_JK_12SoapOut">
     <wsdl:part name="SAP_OA_JK_12Result" element="tns:SAP_OA_JK_12Result" />
@@ -317,6 +335,11 @@
   </wsdl:message>
   <wsdl:message name="SAP_OA_JK_04SoapOut" />
   <wsdl:portType name="OaWebServiceSoap">
+    <wsdl:operation name="ZRFC_HR_A01_OUT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">打卡数据推送给SAP</wsdl:documentation>
+      <wsdl:input message="tns:ZRFC_HR_A01_OUTSoapIn" />
+      <wsdl:output message="tns:ZRFC_HR_A01_OUTSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SAP_OA_JK_12">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询员工请假数据</wsdl:documentation>
       <wsdl:input message="tns:SAP_OA_JK_12SoapIn" />
@@ -365,6 +388,15 @@
   </wsdl:portType>
   <wsdl:binding name="OaWebServiceSoap" type="tns:OaWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZRFC_HR_A01_OUT">
+      <soap:operation soapAction="http://jiuzhou.com/ZRFC_HR_A01_OUT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SAP_OA_JK_12">
       <soap:operation soapAction="http://jiuzhou.com/SAP_OA_JK_12" style="document" />
       <wsdl:input>
@@ -449,6 +481,15 @@
   </wsdl:binding>
   <wsdl:binding name="OaWebServiceSoap12" type="tns:OaWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZRFC_HR_A01_OUT">
+      <soap12:operation soapAction="http://jiuzhou.com/ZRFC_HR_A01_OUT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SAP_OA_JK_12">
       <soap12:operation soapAction="http://jiuzhou.com/SAP_OA_JK_12" style="document" />
       <wsdl:input>
@@ -533,10 +574,10 @@
   </wsdl:binding>
   <wsdl:service name="OaWebService">
     <wsdl:port name="OaWebServiceSoap" binding="tns:OaWebServiceSoap">
-      <soap:address location="http://10.10.10.47/OaWebService.asmx" />
+      <soap:address location="http://192.168.1.88:8086/OaWebService.asmx" />
     </wsdl:port>
     <wsdl:port name="OaWebServiceSoap12" binding="tns:OaWebServiceSoap12">
-      <soap12:address location="http://10.10.10.47/OaWebService.asmx" />
+      <soap12:address location="http://192.168.1.88:8086/OaWebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
